@@ -11,10 +11,10 @@ Building a small embedded system on the Arduino Mega 2560 that reads the environ
 
 ## Features (current goal / Future planned) checklist
 ### Current
-- [ ] Read BME280 temperature, humidity, and pressure over I2C.
-- [ ] Sample at a configurable interval
+- [x] Read BME280 temperature, humidity, and pressure over I2C.
+- [x] Sample at a configurable interval
 - [ ] Store last N readings in a fixed size ring buffer.
-- [ ] Serial output in structured format (CSV)
+- [x] Serial output in structured format (CSV)
 
 ### Serial CLI
 - [ ] 'help' - list commands
@@ -41,17 +41,21 @@ Building a small embedded system on the Arduino Mega 2560 that reads the environ
 
   | BME280 Pins | Arduino Mega |
   |-------------|--------------|
-  | VCC / VIN   | 5V or 3.3V   |
+  | VCC / VIN   | 5V or 3.3V   |    (Depends on your BME280)
   | GND         | GND          |
   | SDA         | SDA (pin 20) |
   | SCL         | SCL (pin 21) |
+  | CS          | disable (3.3V) |
+  | ADDR        | GND (Address 0x76 |
 
 ## Software
 - Arduino IDE
 - Library: (TBD) 'Adafruit BME280' (or any others)
 
 ## Build & Run
-1. (TBD)
+1. Install Adafruit BME280, Adafruit BusIO, Adafruit Unified Sensor via the Library manager in the Arduino IDE
+2. Set ADDR pin to GND for the address to be 0x76
+3. Open the Serial monitor at 115200 baud
 
 ## Architecture
 - 'main': initialises peripherals and runs the main loop
@@ -62,13 +66,13 @@ Building a small embedded system on the Arduino Mega 2560 that reads the environ
 
 ## Project status
 This repo is under active development alongside my university coursework.
-Initial milestone: read sensor + periodic serial output.
+Milestone 1 Complete
 
 ## Roadmap
-- Milestone 1: I2C sensor read + periodic print
-- Milestone 2: Ring buffer + 'latest' + 'dump'
-- Milestone 3: CLI config ('set rate', 'start/stop')
-- Milestone 4: (optional): microSD logging + robustness polish
+-  [x] Milestone 1: I2C sensor read + periodic print
+-  [ ] Milestone 2: Ring buffer + 'latest' + 'dump'
+-  [ ] Milestone 3: CLI config ('set rate', 'start/stop')
+-  [ ] Milestone 4: (optional): microSD logging + robustness polish
 
 ## Design decisions and tradeoff (to be expanded)
 - Use a ring buffer for predictable memory usage on a microcontroller.
