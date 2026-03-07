@@ -46,7 +46,7 @@ Building a small embedded system on the Arduino Mega 2560 that reads the environ
   | SDA         | SDA (pin 20) |
   | SCL         | SCL (pin 21) |
   | CS          | disable (3.3V) |
-  | ADDR        | GND (Address 0x76 |
+  | ADDR        | GND (Address 0x76) |
 
 ## Software
 - Arduino IDE
