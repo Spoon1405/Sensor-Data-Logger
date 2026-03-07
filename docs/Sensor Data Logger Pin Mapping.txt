@@ -1,0 +1,6 @@
+VCC 	= 	3.3V
+GND 	= 	GND
+SDA 	= 	pin 20 (Arduino Mega)
+SCL 	= 	pin 21 (Arduino Mega)
+ADDR 	= 	GND (Address 0x76)
+CS 	= 	3.3V (Disabled Chip Select)
